@@ -1,23 +1,21 @@
 package com.checkpoint4.wildcircus.controllers;
 
 import java.util.List;
-import java.util.Set;
-
 import com.checkpoint4.wildcircus.entities.Person;
 import com.checkpoint4.wildcircus.entities.Spectacle;
 import com.checkpoint4.wildcircus.repositories.PersonRepository;
 import com.checkpoint4.wildcircus.repositories.SpectacleRepository;
 
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.data.repository.CrudRepository;
+import org.springframework.stereotype.Controller;
+import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RestController;
 
-@RestController
+@Controller
 public class SpectacleController {
 
     @Autowired
@@ -27,28 +25,33 @@ public class SpectacleController {
     PersonRepository personRepository;
 
     @GetMapping("/spectacles")
-    public List<Spectacle> browse() {
-        return spectacleRepository.findAll();
+    public String browse(Model model) {
+        List<Spectacle> spectacleList = spectacleRepository.findAll();
+        model.addAttribute("spectacleList", spectacleList);
+        return "index";
     }
 
     @GetMapping("/spectacles/{id}")
-    public Spectacle read(@PathVariable Long id) {
-        return spectacleRepository.findById(id).get();
+    public String read(Model model, @PathVariable Long id) {
+        Spectacle spectacle = spectacleRepository.findById(id).get();
+        model.addAttribute("spectacle", spectacle);
+        return "index";
     }
 
     @GetMapping("/spectacles/{id}/persons/{personId}")
-    public Spectacle associate(@PathVariable Long id, @PathVariable Long personId) {
+    public String associate(@PathVariable Long id, @PathVariable Long personId) {
         Spectacle spectacle = spectacleRepository.findById(id).get();
         Person person = personRepository.findById(personId).get();
 
         person.getSubscribedSpectacles().add(spectacle);
         personRepository.save(person);
 
-        return spectacleRepository.findById(id).get();
+        return "index";
     }
 
     @PostMapping("/spectacles")
-    public Spectacle store(@ModelAttribute Spectacle spectacle) {
-        return spectacleRepository.save(spectacle);
+    public String store(@ModelAttribute Spectacle spectacle) {
+        spectacleRepository.save(spectacle);
+        return "redirect:/spectacles/" + spectacle.getId();
     }
 }

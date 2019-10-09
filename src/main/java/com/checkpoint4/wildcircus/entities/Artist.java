@@ -50,6 +50,10 @@ public class Artist {
         this.description = description;
     }
 
-
-
+    public Artist(Long id, String lastname, String firstname, String description) {
+        this.id = id;
+        this.lastname = lastname;
+        this.firstname = firstname;
+        this.description = description;
+    }
 }
