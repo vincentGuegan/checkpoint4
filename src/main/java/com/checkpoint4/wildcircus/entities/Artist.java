@@ -1,26 +1,21 @@
 package com.checkpoint4.wildcircus.entities;
 
-import java.util.Set;
-
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
-import javax.persistence.ManyToMany;
 
 @Entity
-public class Spectacle {
+public class Artist {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
 
-    private String name;
+    private String lastname;
+    private String firstname;
     private String description;
 
-    @ManyToMany(mappedBy = "subscribedSpectacles")
-    Set<Person> subscribes;
-
-    public Spectacle() {
+    public Artist() {
     }
 
     public Long getId() {
@@ -31,12 +26,20 @@ public class Spectacle {
         this.id = id;
     }
 
-    public String getName() {
-        return name;
+    public String getLastname() {
+        return lastname;
     }
 
-    public void setName(String name) {
-        this.name = name;
+    public void setLastname(String lastname) {
+        this.lastname = lastname;
+    }
+
+    public String getFirstname() {
+        return firstname;
+    }
+
+    public void setFirstname(String firstname) {
+        this.firstname = firstname;
     }
 
     public String getDescription() {
@@ -44,14 +47,9 @@ public class Spectacle {
     }
 
     public void setDescription(String description) {
-		this.description = description;
+        this.description = description;
     }
 
-    public Set<Person> getSubscribes() {
-        return subscribes;
-    }
 
-    public void setSubscribes(Set<Person> subscribes) {
-        this.subscribes = subscribes;
-    }
+
 }

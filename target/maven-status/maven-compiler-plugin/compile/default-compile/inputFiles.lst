@@ -1,4 +1,7 @@
 /Users/admin/Documents/WCS/checkpoint4/wildcircus/src/main/java/com/checkpoint4/wildcircus/entities/Person.java
+/Users/admin/Documents/WCS/checkpoint4/wildcircus/src/main/java/com/checkpoint4/wildcircus/repositories/SpectacleRepository.java
+/Users/admin/Documents/WCS/checkpoint4/wildcircus/src/main/java/com/checkpoint4/wildcircus/controllers/SpectacleController.java
 /Users/admin/Documents/WCS/checkpoint4/wildcircus/src/main/java/com/checkpoint4/wildcircus/controllers/PersonController.java
+/Users/admin/Documents/WCS/checkpoint4/wildcircus/src/main/java/com/checkpoint4/wildcircus/entities/Spectacle.java
 /Users/admin/Documents/WCS/checkpoint4/wildcircus/src/main/java/com/checkpoint4/wildcircus/repositories/PersonRepository.java
 /Users/admin/Documents/WCS/checkpoint4/wildcircus/src/main/java/com/checkpoint4/wildcircus/WildcircusApplication.java
