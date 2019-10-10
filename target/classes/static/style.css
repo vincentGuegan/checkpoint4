@@ -51,6 +51,7 @@ body, html {
       /* -------- HEADER NAVIGATION -------- */
 
 header nav{
+    background-color: #2220202f;
     color:rgb(10, 10, 10);
 }
 
@@ -106,6 +107,7 @@ header .navbar-collapse{
     header .navbar-expand-lg .navbar-nav .nav-link {
         padding-right: 1vw;
         padding-left: 1vw;
+        
     }
 
     header .container-icon{
