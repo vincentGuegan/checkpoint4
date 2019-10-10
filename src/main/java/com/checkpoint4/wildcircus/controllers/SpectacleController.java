@@ -28,14 +28,14 @@ public class SpectacleController {
     public String browse(Model model) {
         List<Spectacle> spectacleList = spectacleRepository.findAll();
         model.addAttribute("spectacleList", spectacleList);
-        return "index";
+        return "spectacles";
     }
 
     @GetMapping("/spectacles/{id}")
     public String read(Model model, @PathVariable Long id) {
         Spectacle spectacle = spectacleRepository.findById(id).get();
         model.addAttribute("spectacle", spectacle);
-        return "index";
+        return "spectacles";
     }
 
     @GetMapping("/spectacles/{id}/persons/{personId}")
@@ -46,7 +46,7 @@ public class SpectacleController {
         person.getSubscribedSpectacles().add(spectacle);
         personRepository.save(person);
 
-        return "index";
+        return "spectacles";
     }
 
     @PostMapping("/spectacles")

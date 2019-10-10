@@ -25,14 +25,14 @@ class ArtistController {
     public String browse(Model model) {
         List<Artist> artistList = artistRepository.findAll();
         model.addAttribute("artistList", artistList);
-        return "index";
+        return "artists";
     }
 
     @GetMapping("/artists/{id}")
     public String read(Model model, @PathVariable Long id) {
         Artist artist = artistRepository.findById(id).get();
         model.addAttribute("artist", artist);
-        return "index";
+        return "artists";
     }
 
     @PostMapping("/artists")

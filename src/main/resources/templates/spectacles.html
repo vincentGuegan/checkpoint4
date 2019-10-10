@@ -28,9 +28,9 @@
               </button>
               <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
                 <div class="navbar-nav">
-                  <a class="nav-item nav-link" th:href=@{/artists}>Artistes</a>
-                  <a class="nav-item nav-link active" th:href=@{/spectacles}>Spectacles</a>
-                  <a class="nav-item nav-link" th:href=@{/booking}>Réservation</a>
+                    <a class="nav-item nav-link" th:href="@{/artists}">Artistes</a>
+                    <a class="nav-item nav-link active" th:href="@{/spectacles}">Spectacles</a>
+                    <a class="nav-item nav-link" th:href="@{/booking}">Réservation</a>
                 </div>
               </div>
             </nav>
@@ -40,35 +40,24 @@
     <!-- End of Header  -->
 
     <!-- Page Content  -->
+
     
     <!-- SECTION PRESENTATION DES ARTISTES -->
-    <section id="Accueil">
+    <section id="Spectacles">
+
+        <div th:if="${spectacleList}" th:each="spectacle : ${spectacleList}">
         <div class="d-flex justify-content-around">
                 <div class="card" style="width: 18rem;">
                         <img th:src="@{/img/chapiteau.jpg}" src="../static/img/chapiteau.jpg" height="250" width="500" class="card-img-top" alt="...">
                         <div class="card-body">
-                            <h5 class="card-title text-center">SPECTACLES</h5>
-                            <p class="card-text text-center">Lorem ipsum.</p>
-                            <a th:href="@{/spectacles}" class="btn btn-primary">Nos spectacles</a>
-                        </div>
-                </div>
-                <div class="card" style="width: 18rem;">
-                        <img th:src="@{/img/clown.jpg}" src="../static/img/clown.jpg" height="250" width="500" class="card-img-top" alt="...">
-                        <div class="card-body">
-                            <h5 class="card-title text-center">ARTISTES</h5>
-                            <p class="card-text text-center">Lorem ipsum</p>
-                            <a th:href="@{/artists}" class="btn btn-primary">Nos artistes</a>
-                        </div>
-                </div>
-                <div class="card" style="width: 18rem;">
-                        <img th:src="@{/img/clown.jpg}" src="../static/img/clown.jpg" height="250" width="500" class="card-img-top" alt="...">
-                        <div class="card-body">
-                            <h5 class="card-title text-center">INSCRIPTION</h5>
-                            <p class="card-text text-center">Lorem ipsum</p>
-                            <a th:href="@{/booking}" class="btn btn-primary">Inscris-toi</a>
+                            <h5 class="card-title text-center" th:text="${spectacle.name}"></h5>
+                            <p class="card-text text-center" th:text="${spectacle.description}">L</p>
+                            <a th:href="@{/booking}" class="btn btn-primary">inscris-toi</a>
                         </div>
                 </div>
             </div>
+
+
     </section>
 
 

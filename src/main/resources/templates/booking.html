@@ -28,9 +28,9 @@
               </button>
               <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
                 <div class="navbar-nav">
-                  <a class="nav-item nav-link" th:href=@{/artists}>Artistes</a>
-                  <a class="nav-item nav-link active" th:href=@{/spectacles}>Spectacles</a>
-                  <a class="nav-item nav-link" th:href=@{/booking}>Réservation</a>
+                  <a class="nav-item nav-link" th:href="@{/artists}">Artistes</a>
+                  <a class="nav-item nav-link active" th:href="@{/spectacles}">Spectacles</a>
+                  <a class="nav-item nav-link" th:href="@{/booking}">Réservation</a>
                 </div>
               </div>
             </nav>
@@ -40,35 +40,57 @@
     <!-- End of Header  -->
 
     <!-- Page Content  -->
+
+    <!-- <p class="py-5 text-center">This example creates a full page background image. Try to resize the browser window to see how it always will cover the full screen (when scrolled to top), and that it scales nicely on all screen sizes.</p>
+
+    <div th:if="${spectacleList}" th:each="spectacle : ${spectacleList}">
+        <div th:text="${spectacle.name}"></div>
+    </div>
+
+    <div th:if="${spectacle}" th:text="${spectacle.name}"></div> -->
+
     
-    <!-- SECTION PRESENTATION DES ARTISTES -->
-    <section id="Accueil">
+    <!-- SECTION RESERVATION -->
+    <section id="Reservation">
         <div class="d-flex justify-content-around">
-                <div class="card" style="width: 18rem;">
-                        <img th:src="@{/img/chapiteau.jpg}" src="../static/img/chapiteau.jpg" height="250" width="500" class="card-img-top" alt="...">
-                        <div class="card-body">
-                            <h5 class="card-title text-center">SPECTACLES</h5>
-                            <p class="card-text text-center">Lorem ipsum.</p>
-                            <a th:href="@{/spectacles}" class="btn btn-primary">Nos spectacles</a>
-                        </div>
+            
+        <form action="#" class="text-center border border-light " th:action="@{/booking}" th:object="${person}" method="POST">
+            <p class="h4 p-4">Enregistrement</p>
+            <div class="form-row mb-4">       
+                <div class="col-6">
+                    <input class="form-control" type="text" placeholder="Prénom *" th:field="*{firstname}" required>
                 </div>
-                <div class="card" style="width: 18rem;">
-                        <img th:src="@{/img/clown.jpg}" src="../static/img/clown.jpg" height="250" width="500" class="card-img-top" alt="...">
-                        <div class="card-body">
-                            <h5 class="card-title text-center">ARTISTES</h5>
-                            <p class="card-text text-center">Lorem ipsum</p>
-                            <a th:href="@{/artists}" class="btn btn-primary">Nos artistes</a>
-                        </div>
+                
+                <div class="col-6">
+                    <input class="form-control" type="text" placeholder="Nom *" th:field="*{lastname}" required>
                 </div>
-                <div class="card" style="width: 18rem;">
-                        <img th:src="@{/img/clown.jpg}" src="../static/img/clown.jpg" height="250" width="500" class="card-img-top" alt="...">
-                        <div class="card-body">
-                            <h5 class="card-title text-center">INSCRIPTION</h5>
-                            <p class="card-text text-center">Lorem ipsum</p>
-                            <a th:href="@{/booking}" class="btn btn-primary">Inscris-toi</a>
-                        </div>
+
+                <div class="col-6"></div>
+                    <input class="form-control mb-4" type="email" placeholder="E-mail *" th:field="*{email}" required>
                 </div>
+                
+                <p class="h4 p-4">Choix du Spectacle</p>
+
+                <div class="form-group">
+                        <select class="form-control" id="exampleFormControlSelect1" th:action="@{/booking}" th:object="${spectacle}" method="POST">
+                          <option th:field="*{name}"></option>
+                          <option th:field="*{name}"></option>
+                          <option th:field="*{name}"></option>
+                        </select>
+                      </div>
+            
             </div>
+            
+
+
+            <div class="d-flex justify-content-center">
+                <button type="submit" class="btn btn-info my-4 btn-block">Valider</button>
+            </div>
+            </form> 
+        </div>
+
+
+
     </section>
 
 
