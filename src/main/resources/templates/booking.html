@@ -72,19 +72,17 @@
                 <p class="h4 p-4">Choix du Spectacle</p>
 
                 <div class="form-group">
-                        <select class="form-control" id="exampleFormControlSelect1" th:action="@{/booking}" th:object="${spectacle}" method="POST">
-                          <option th:field="*{name}"></option>
-                          <option th:field="*{name}"></option>
-                          <option th:field="*{name}"></option>
-                        </select>
-                      </div>
+                    <select class="form-control" id="exampleFormControlSelect1" name="spectacle">
+                        <option th:each="spectacle : ${spectacles}" th:text="${spectacle.name}" th:value="${spectacle.id}"></option>
+                    </select>
+                </div>
             
             </div>
             
 
 
             <div class="d-flex justify-content-center">
-                <button type="submit" class="btn btn-info my-4 btn-block">Valider</button>
+                <button type="submit" class="btn btn-info my-4 btn-block "th:href="@{/index}">Valider</button>
             </div>
             </form> 
         </div>

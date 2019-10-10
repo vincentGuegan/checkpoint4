@@ -1,5 +1,6 @@
 package com.checkpoint4.wildcircus.entities;
 
+import java.util.HashSet;
 import java.util.Set;
 
 import javax.persistence.Entity;
@@ -28,7 +29,7 @@ public class Person {
         joinColumns = @JoinColumn(name = "person_id"),
         inverseJoinColumns = @JoinColumn(name = "spectacle_id"))
         @JsonIgnore
-    Set<Spectacle> subscribedSpectacles;
+    Set<Spectacle> subscribedSpectacles = new HashSet<Spectacle>();
 
     public Person() {
     }
